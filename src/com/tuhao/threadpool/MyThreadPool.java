@@ -84,7 +84,6 @@ public class MyThreadPool {
             thread.interrupt();
         }
     }
-
     /*测试*/
     public static void main(String[] argv) throws InterruptedException {
         int threadCount = 100;
