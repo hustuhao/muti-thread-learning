@@ -92,6 +92,7 @@ public class MyThreadPool {
         MyThreadPool myThreadPool = new MyThreadPool(5,100);
 
         for(int i=0 ; i < threadCount; i++){
+            //提交任务
             boolean isAccept = myThreadPool.subumit(new Runnable() {
                 @Override
                 public void run() {
