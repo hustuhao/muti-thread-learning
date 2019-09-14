@@ -1,7 +1,7 @@
 package com.tuhao.mutiprogram;
 /* 经典生产者和消费者问题 */
 class FooBar {
-    private int n;
+    private int n; // 打印 FooBar 的次数
     boolean flag = true;
 
     public FooBar(int n) {
