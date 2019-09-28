@@ -1,0 +1,13 @@
+### 多线程查询结果组装
+
+文件结构：
+dao         数据库层
+service     业务层
+semaphore   自定义信号量类
+realization 多线程组装的几种实现方法
+    semaphore   信号量实现多线程组装
+    spinlock    自旋锁实现多线程组装
+main        主函数入口
+
+
+https://www.iteye.com/blog/phl-2035708
