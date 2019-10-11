@@ -1,13 +1,13 @@
-package com.tuhao.threadpool;
+package com.tuhao.threadpool.one;
 
 import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /*
 线程池 = 有界/无界队列<Runable> + List<Thread> + 饱和策略
-原文地址：https://my.oschina.net/u/4129361/blog/3056289
+原文地址： https://my.oschina.net/u/4129361/blog/3056289
+         https://my.oschina.net/u/4108008/blog/3114587
 */
 public class MyThreadPool {
 
@@ -49,6 +49,7 @@ public class MyThreadPool {
 
         @Override
         public void run() {
+            //判断线程池是否在工作状态 以及阻塞队列中是否有任务待执行
             while (pool.isWorking || pool.blockingQueue.size() > 0) {
                 try {
                     //出列：取任务
@@ -111,7 +112,6 @@ public class MyThreadPool {
         }
 
         //  countDownLatch.await();
-
         Thread.sleep(1000);
 
         for(int i=threadCount ; i < threadCount*2; i++){
@@ -132,7 +132,7 @@ public class MyThreadPool {
             }
         }
 
-        //释放资源，不然程序会“卡在哪里”
+        //释放资源，不然任务执行完成后，主程序会“卡住”
         myThreadPool.shutDown();
 
     }
